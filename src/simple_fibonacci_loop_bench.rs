@@ -10,7 +10,7 @@ pub fn bench(count: u32) -> BigUint{
     let  mut current : BigUint  = Zero::zero();
     let mut next: BigUint  = One::one();
 
-    for _i in 1..count {
+    for _i in 0..count {
 
         let result = current + &next;
         // see https://docs.rs/num-bigint/0.2.6/num_bigint/index.html
