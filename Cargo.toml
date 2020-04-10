@@ -9,3 +9,11 @@ edition = "2018"
 [dependencies]
 num-bigint = "0.2"
 num-traits = "0.2.11"
+
+[[bin]]
+name = "benchtool-rust"
+path = "src/main.rs"
+
+
+[profile.release]
+codegen-units=1
