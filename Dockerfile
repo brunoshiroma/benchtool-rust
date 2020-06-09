@@ -1,15 +1,24 @@
-FROM rust:1-slim as buildbase
+FROM alpine as buildbase
 
 WORKDIR /bench
 
-COPY Cargo.* ./
+RUN apk update
+RUN apk add cargo
+RUN apk add rust
 
+COPY Cargo.* ./
 RUN cargo fetch
 
-FROM buildbase
-
 COPY . .
+RUN cargo build --release --all-features
 
-RUN cargo install --path .
+FROM alpine as runtime
 
-ENTRYPOINT ["benchtool-rust"]
+RUN apk update
+RUN apk add libgcc
+
+WORKDIR /bench
+
+COPY --from=buildbase /bench/target/release/benchtool-rust .
+
+ENTRYPOINT ["./benchtool-rust"]
