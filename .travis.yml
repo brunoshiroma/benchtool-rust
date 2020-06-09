@@ -29,5 +29,5 @@ jobs:
         - docker buildx build --platform linux/amd64 -t brunoshiroma/benchtool-rust:amd64-latest --push .
         - docker buildx build --platform linux/arm64/v8 -t brunoshiroma/benchtool-rust:aarch64-latest --push .
         - docker buildx build --platform linux/386 -t brunoshiroma/benchtool-rust:386-latest --push .
-        - docker manifest create brunoshiroma/benchtool-rust:latest brunoshiroma/benchtool-rust:386-latest brunoshiroma/benchtool-rust:armv7-latest brunoshiroma/benchtool-rust:armv6-latest brunoshiroma/benchtool-rust:amd64-latest brunoshiroma/benchtool-rust:aarch64-latest
+        - docker manifest create brunoshiroma/benchtool-rust:latest brunoshiroma/benchtool-rust:386-latest brunoshiroma/benchtool-rust:armv7-latest brunoshiroma/benchtool-rust:amd64-latest brunoshiroma/benchtool-rust:aarch64-latest
         - docker manifest push brunoshiroma/benchtool-rust:latest
