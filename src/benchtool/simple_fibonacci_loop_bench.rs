@@ -5,7 +5,7 @@ use num_bigint::BigUint;
 use num_traits::{Zero, One};
 use std::mem::replace;
 
-pub fn bench(count: u32) -> BigUint{
+pub fn bench(count: i32) -> BigUint{
 
     let  mut current : BigUint  = Zero::zero();
     let mut next: BigUint  = One::one();

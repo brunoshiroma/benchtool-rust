@@ -14,6 +14,10 @@ num-traits = "0.2.11"
 name = "benchtool-rust"
 path = "src/main.rs"
 
+[lib]
+name = "benchtoolrust"
+crate-type = ["staticlib", "cdylib"]
+
 
 [profile.release]
 codegen-units=1

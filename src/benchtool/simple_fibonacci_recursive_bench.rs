@@ -5,7 +5,7 @@ use num_bigint::BigUint;
 use num_traits::{Zero, One};
 use std::thread;
 
-pub fn bench(count: u32) -> BigUint{
+pub fn bench(count: i32) -> BigUint{
 
     let num: u64 = count as u64;
 
@@ -22,7 +22,7 @@ pub fn bench(count: u32) -> BigUint{
     return res.unwrap().join().unwrap_or_default();
 }
 
-fn calculate_fibonacci(previous: BigUint, current: BigUint, max_interations: u32, current_interation: &mut u32) -> BigUint{
+fn calculate_fibonacci(previous: BigUint, current: BigUint, max_interations: i32, current_interation: &mut i32) -> BigUint{
     *current_interation += 1;
 
     let _previous = current.clone();
