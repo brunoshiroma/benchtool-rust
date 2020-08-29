@@ -7,8 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-num-bigint = "0.2"
-num-traits = "0.2.11"
+num-bigint = "0.3"
+num-traits = "0.2.12"
 
 [[bin]]
 name = "benchtool-rust"
@@ -16,8 +16,10 @@ path = "src/main.rs"
 
 [lib]
 name = "benchtoolrust"
+path = "src/lib.rs"
 crate-type = ["staticlib", "cdylib"]
 
 
 [profile.release]
 codegen-units=1
+opt-level = 3
