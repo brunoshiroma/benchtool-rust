@@ -7,8 +7,8 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-num-bigint = "0.4.0"
-num-traits = "0.2.12"
+num-bigint = "0.4.3"
+num-traits = "0.2.14"
 
 [[bin]]
 name = "benchtool-rust"
