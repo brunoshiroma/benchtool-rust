@@ -20,7 +20,7 @@ before_install:
 
 jobs:
   include:
-    - if: branch = master
+    - if: branch = main
       os: linux
       arch: amd64
       script:
