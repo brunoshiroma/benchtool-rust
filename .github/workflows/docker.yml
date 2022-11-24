@@ -29,7 +29,7 @@ jobs:
           file: Dockerfile.aarch64
           push: true
           platforms: linux/amd64
-          tags: arm64
+          tags: ghcr.io/${{ github.repository }}:arm64
 
   amd64:
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64
-          tags: amd64
+          tags: ghcr.io/${{ github.repository }}:amd64
           
   latest:
     runs-on: ubuntu-latest
