@@ -5,7 +5,7 @@ on:
     branches: ['main']
 
 jobs:
-  build-and-push-image:
+  arm64:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,18 +21,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: ghcr.io/${{ github.repository }}
-<<<<<<< Updated upstream
-=======
-          tags: |
-            type=ref,enable=true,priority=600,prefix=arm64-,suffix=,event=branch
-
->>>>>>> Stashed changes
 
       - name: Build and push Docker image arm64
         uses: docker/build-push-action@v2
@@ -42,10 +30,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: arm64
-          labels: ${{ steps.meta.outputs.labels }}
 
-<<<<<<< Updated upstream
-=======
   amd64:
     runs-on: ubuntu-latest
     permissions:
@@ -62,16 +47,7 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v3
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: |
-            type=ref,enable=true,priority=600,prefix=amd64-,suffix=,event=branch
 
->>>>>>> Stashed changes
       - name: Build and push Docker image amd64
         uses: docker/build-push-action@v2
         with:
@@ -79,8 +55,7 @@ jobs:
           push: true
           platforms: linux/amd64
           tags: amd64
-          labels: ${{ steps.meta.outputs.labels }}
-    
+          
   latest:
     runs-on: ubuntu-latest
     permissions:
